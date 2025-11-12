@@ -1,13 +1,198 @@
-body {
+/* ✅ Always import Swiper first */
+@import "swiper/css";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 🌐 Modern CSS Reset */
+*,
+*::before,
+*::after {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* 🧍 Base Styles */
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  line-height: 1.6;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+body {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: var(--text-color, #1a1a1a);
+  background-color: var(--bg-color, #f8fafc);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* 📝 Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+  color: var(--secondary-color, #1e293b);
+}
+
+h1 { font-size: 3rem; }
+h2 { font-size: 2.5rem; }
+h3 { font-size: 2rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+
+/* 🔗 Links */
+a {
+  color: var(--primary-color, #3b82f6);
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+a:hover {
+  color: var(--primary-dark, #2563eb);
+}
+
+/* 📝 Typography */
+.header-title {
+    font-family: 'Baloo Paaji', sans-serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+}
+
+.up:before {
+    width: 0;
+    height: 0;
+    position: absolute;
+    content: '';
+    bottom: -9px;
+    left: 12px;
+    border-style: solid;
+    border-width: 14px 11px 0 12px;
+    border-color: #10b981 transparent transparent;
+}
+
+.section-title h2::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 70px;
+  height: 3px;
+  background: var(--primary-color, #3b82f6);
+  transform: translateX(-50%);
+}
+
+/* 🔘 Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 30px;
+  border: 2px solid var(--primary-color, #3b82f6);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: var(--primary-color, #3b82f6);
+  color: white;
+}
+
+.btn:hover {
+  background: transparent;
+  color: var(--primary-color, #3b82f6);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--primary-color, #3b82f6);
+  border: 2px solid var(--primary-color, #3b82f6);
+}
+
+.btn-outline:hover {
+  background: var(--primary-color, #3b82f6);
+  color: white;
+}
+
+/* 🪪 Cards */
+.card {
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  padding: 1.5rem;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* ✨ Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* 🎚️ Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f3f4f6;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #9ca3af;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 991px) {
+  html { font-size: 15px; }
+  .section { padding: 80px 0; }
+}
+
+@media (max-width: 768px) {
+  html { font-size: 14px; }
+  .section { padding: 60px 0; }
+  .section-title { margin-bottom: 40px; }
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
+  h3 { font-size: 1.75rem; }
+}
+
+.first-letter-big::first-letter {
+  font-size: 30px;
+  color: red;
+}
+
+.header-title {
+    font-family: 'Baloo Paaji';
+    font-size: 2.4rem;
+    font-weight: 700;
 }
