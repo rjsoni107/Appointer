@@ -28,7 +28,9 @@ export default function Sidebar() {
             >
                 {/* Header inside sidebar */}
                 <div className="flex items-center justify-between h-16 px-4 border-b border-gray-700">
-                    <img src={logoLight} alt="logo" className="h-8 w-auto" />
+                    <a href="/">
+                        <img src={logoLight} alt="logo" className="h-8 w-auto" />
+                    </a>
                     <button
                         onClick={() => dispatch(closeSidebar())}
                         className="lg:hidden text-gray-400 hover:text-white"
