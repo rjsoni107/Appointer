@@ -1,10 +1,12 @@
-const Heading = ({title, subtitle, headingClass}) => {
+
+export const PageHeading = ({ mainHeadng, description }) => {
     return (
-        <div className={`section-title text-center mb-8`}>
-            <h2 className={`uppercase text-4xl font-bold mb-4 pb-4 relative inline-block ${headingClass ? headingClass : 'text-gray-900'}`}>{title}</h2>
-            <p className={`text-xl ${headingClass ? headingClass : 'text-gray-900'}`}>{subtitle}</p>
+        <div className={`pb-4`}>
+            {/* Main Headline */}
+            <h1 className={` text-headingColor dark:text-blue-400 text-[23px] font-[700] mb-1`}>{mainHeadng}</h1>
+
+            {/* Description */}
+            <p className={`text-gray-600 dark:text-gray-200 font-[400] text-[13px] mb-1`}>{description}</p>
         </div>
     )
 }
-
-export default Heading

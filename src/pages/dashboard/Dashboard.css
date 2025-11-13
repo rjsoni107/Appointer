@@ -1,0 +1,86 @@
+.stat-card {
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    border: none;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+}
+
+.stat-change.up {
+    color: #52c41a;
+}
+
+.stat-change.down {
+    color: #f5222d;
+}
+
+.transaction-type {
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.transaction-type.buy {
+    background-color: #f6ffed;
+    border: 1px solid #b7eb8f;
+    color: #52c41a;
+}
+
+.transaction-type.sell {
+    background-color: #fff1f0;
+    border: 1px solid #ffa39e;
+    color: #f5222d;
+}
+
+.transaction-details {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    font-size: 13px;
+    color: #666;
+}
+
+.pnl {
+    font-weight: 500;
+}
+
+.status {
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.status.completed {
+    background-color: #f6ffed;
+    color: #52c41a;
+}
+
+.status.pending {
+    background-color: #fffbe6;
+    color: #faad14;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}

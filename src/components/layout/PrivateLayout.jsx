@@ -1,6 +1,6 @@
 import { Outlet, Navigate } from "react-router-dom";
-// import { Sidebar } from '../sidebar';
-// import { CrmHeader } from '../header';
+import { Sidebar } from '../sidebar';
+import { CrmHeader } from '../header';
 import { useContext } from "react";
 import { AuthContext } from '../../contexts/AuthContext';
 
@@ -12,18 +12,18 @@ const PrivateLayout = () => {
     }
 
     return (
-        <div className="min-h-screen bg-gray-50">
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-800">
             {/* Sidebar */}
-            {/* <Sidebar /> */}
+            <Sidebar />
             
             {/* Main Content Area */}
             <div className="ml-64">
                 {/* Header */}
-                {/* <CrmHeader /> */}
+                <CrmHeader />
                 
                 {/* Page Content */}
-                <div className="px-6 py-3">
-                    {/* <Outlet /> */}
+                <div className="px-6 pt-20">
+                    <Outlet />
                 </div>
             </div>
         </div>

@@ -17,9 +17,8 @@ const LoginFormDTO = ({login}) => {
         if (validateFormHandler(that)) {
             dispatch(closeLogin());
             console.log(payload)
-            navigate('/dashboard');
-
             login(payload)
+            // navigate('/dashboard');
             // fetchData('POST', basePathAction(ENDPOINTS.LOGIN), payload).then(responseJson => {
             //     console.log(responseJson)
             // });

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaBars, FaTimes, FaChevronDown, FaWrench, FaBolt, FaPaintBrush, FaTools, FaBroom, FaCar, FaTree } from 'react-icons/fa';
+import { FaBars, FaTimes, FaChevronDown, FaWrench, FaBolt, FaPaintBrush, FaTools, FaBroom, FaCar, FaTree, FaUser, FaSignInAlt, FaSignOutAlt, FaUserPlus } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
 import { closeLogin, closeRegister, openLogin, openRegister } from "../../store/reducerSlice/modalSlice";
 import { useAuth } from "../../hook/useAuth";
@@ -8,6 +8,7 @@ import ThemeToggle from './ThemeToggle';
 import logoDark from '../../assets/images/logo-dark.webp';
 import logoLight from '../../assets/images/logo-light.webp';
 import { useTheme } from '../../contexts/ThemeContext';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
     const { isLoggedIn, logout } = useAuth();
@@ -15,6 +16,7 @@ const Header = () => {
     const [isServicesOpen, setIsServicesOpen] = useState(false);
     const { theme } = useTheme();
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const onOpenLogin = () => {
         dispatch(closeRegister());
@@ -55,7 +57,7 @@ const Header = () => {
                                 onClick={() => setIsServicesOpen(true)}
                             >
                                 <button className="flex items-center gap-1 text-gray-800 dark:text-gray-200 hover:text-blue-600 font-medium transition-colors">
-                                    {link} <FaChevronDown className={`transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} />
+                                    {link} <FaChevronDown className={`transition-transform duration-200 mt-1 text-gray-800 dark:text-gray-200 ${isServicesOpen ? 'rotate-180' : ''}`} />
                                 </button>
 
                                 {/* 🧩 Multi-column Dropdown */}
@@ -94,35 +96,49 @@ const Header = () => {
                     <ThemeToggle />
 
                     {isLoggedIn ? (
-                        <button
-                            type="button"
-                            onClick={logout}
-                            className="text-gray-800 dark:text-gray-200 font-medium hover:text-blue-600 dark:hover:text-blue-400 bg-white px-5 py-1 rounded-full transition border border-blue-600 hover:border-blue-600"
-                        >
-                            Logout
-                        </button>
+                        <div className="flex items-center gap-2">
+                            <button
+                                type="button"
+                                onClick={() => navigate('/dashboard')}
+                                className="flex items-center gap-1 text-gray-800 hover:text-blue-600 bg-white px-5 py-1 rounded-full transition border border-blue-600 hover:border-blue-600"
+                            >
+                                <FaUser className="w-4 h-4" />
+                                <span>Dashboard</span>
+                            </button>
+                            <span className="text-gray-300">|</span>
+                            <button
+                                type="button"
+                                onClick={logout}
+                                className="flex items-center gap-1 bg-blue-600 hover:bg-blue-700 text-white px-5 py-1 rounded-full font-medium transition hover:border-blue-600"
+                            >
+                                <FaSignOutAlt className="w-4 h-4" />
+                                <span>Logout</span>
+                            </button>
+                        </div>
                     ) : (
                         <>
                             <button
                                 type="button"
                                 onClick={onOpenLogin}
-                                className="text-gray-800 font-medium hover:text-blue-600 dark:hover:text-blue-400 bg-white px-5 py-1 rounded-full transition border border-blue-600 hover:border-blue-600"
+                                className="flex items-center gap-1 text-gray-800 font-medium hover:text-blue-600 bg-white px-5 py-1 rounded-full transition border border-blue-600 hover:border-blue-600"
                             >
-                                Login
+                                <FaSignInAlt className="w-4 h-4" />
+                                <span>Login</span>
                             </button>
                             <button
                                 type="button"
                                 onClick={onOpenRegister}
-                                className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-1 rounded-full font-medium transition hover:border-blue-600"
+                                className="flex items-center gap-1 bg-blue-600 hover:bg-blue-700 text-white px-5 py-1 rounded-full font-medium transition hover:border-blue-600"
                             >
-                                Sign Up
+                                <FaUserPlus className="w-4 h-4" />
+                                <span>Sign Up</span>
                             </button>
                         </>
                     )}
                 </div>
 
                 {/* Mobile Menu Button */}
-                <div className="lg:hidden flex items-center gap-4"> 
+                <div className="lg:hidden flex items-center gap-4">
                     <ThemeToggle />
                     <button
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -140,7 +156,7 @@ const Header = () => {
                                 <div key={link} className="w-full text-center">
                                     <button
                                         onClick={() => setIsServicesOpen(!isServicesOpen)}
-                                        className="flex justify-center items-center w-full text-gray-800 dark:text-gray-200 font-medium hover:text-blue-600 dark:hover:text-blue-400"
+                                        className="flex justify-center items-center w-full text-gray-800 font-medium hover:text-blue-600"
                                     >
                                         {link} <FaChevronDown className={`ml-2 transition-transform ${isServicesOpen ? 'rotate-180' : ''}`} />
                                     </button>

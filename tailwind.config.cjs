@@ -21,6 +21,7 @@ module.exports = {
         cyna: "#20c997",
         topHeaderColor: "#2b4066",
         lightNavyBlue: '#2d569f',
+        darkNavyBlue: '#1e3a6c',
         'soft-blue': '#f5f7fb',
         'soft-peach': '#fff2df',
         'light-sea-green': '#43B3AE',

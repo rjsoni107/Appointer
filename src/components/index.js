@@ -6,6 +6,8 @@ export * from './layout';
 export * from './form';
 export * from './inputField';
 export * from './utility';
+export * from './sidebar';
+
 
 
 
