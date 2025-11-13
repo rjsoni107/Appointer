@@ -40,7 +40,6 @@ const BannerSection = () => {
                 loop
                 muted
                 playsInline
-                lazy
             />
 
             {/* 🔹 Overlay */}
@@ -95,10 +94,8 @@ const BannerSection = () => {
                     transition={{ duration: 0.8, delay: 0.1 }}
                     viewport={{ once: true }}
                 >
-                    <a href="#services">
-                        <button className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-medium shadow-md hover:shadow-lg transition duration-300 text-base sm:text-lg">
-                            <FaSearch /> Find Services Now
-                        </button>
+                    <a href="#services" className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-medium shadow-md hover:shadow-lg transition duration-300 text-base sm:text-lg">
+                        <FaSearch /> Find Services Now
                     </a>
 
                     <button

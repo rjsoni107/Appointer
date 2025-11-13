@@ -5,7 +5,7 @@ import { FaSearch, FaUserPlus } from "react-icons/fa";
 
 const CTASection = () => {
     const dispatch = useDispatch();
-    
+
     const onOpenProviderRegister = () => {
         dispatch(closeLogin());
         setTimeout(() => dispatch(openProviderRegister()), 0);
@@ -29,10 +29,8 @@ const CTASection = () => {
 
             {/* Buttons */}
             <div data-aos="zoom-in" className="flex flex-wrap justify-center gap-6 mt-6">
-                <a href="#services">
-                    <button className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-medium shadow-md hover:shadow-lg transition duration-300 text-base sm:text-lg">
-                        <FaSearch /> Find Services Now
-                    </button>
+                <a href="#services" className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-medium shadow-md hover:shadow-lg transition duration-300 text-base sm:text-lg">
+                    <FaSearch /> Find Services Now
                 </a>
 
                 <button
