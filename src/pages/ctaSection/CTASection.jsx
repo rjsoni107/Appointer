@@ -13,7 +13,7 @@ const CTASection = () => {
     return (
         <section
             id="cta"
-            className="pt-20 pb-10 bg-[#ebf1fe] dark:bg-[#111827] text-center flex flex-col items-center justify-center"
+            className="p-20 bg-[#ebf1fe] dark:bg-[#111827] text-center flex flex-col items-center justify-center"
         >
             {/* Heading */}
             <div data-aos="fade-up" className="mb-6">
