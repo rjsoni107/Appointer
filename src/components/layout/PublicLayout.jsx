@@ -35,8 +35,9 @@ const PublicLayout = () => {
             duration: 1000, // animation duration
             easing: "ease-in-out", // smoother easing
             once: false, // trigger only once
-            offset: 100,
+            offset: window.innerWidth < 768 ? 100 : 80,
         });
+
     }, []);
     return (
         <>
