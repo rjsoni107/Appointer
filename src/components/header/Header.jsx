@@ -155,7 +155,7 @@ const Header = () => {
                                 <div key={link} className="w-full text-center">
                                     <button
                                         onClick={() => setIsServicesOpen(!isServicesOpen)}
-                                        className="flex justify-center items-center w-full text-gray-800 font-medium hover:text-blue-600"
+                                        className="flex justify-center items-center w-full text-gray-800 dark:text-gray-200 font-medium hover:text-blue-600"
                                     >
                                         {link} <FaChevronDown className={`ml-2 transition-transform ${isServicesOpen ? 'rotate-180' : ''}`} />
                                     </button>
@@ -185,7 +185,7 @@ const Header = () => {
                                 </a>
                             )
                         )}
-                        {isLoggedIn ? (
+                        {/* {isLoggedIn ? (
                             <div className="flex items-center gap-2">
                                 <button
                                     type="button"
@@ -219,7 +219,7 @@ const Header = () => {
                                     Sign Up
                                 </button>
                             </div>
-                        )}
+                        )} */}
                     </div>
                 )}
             </div>
