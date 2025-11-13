@@ -122,13 +122,15 @@ const Header = () => {
                 </div>
 
                 {/* Mobile Menu Button */}
-                <ThemeToggle className="lg:hidden"/>
-                <button
-                    onClick={() => setIsMenuOpen(!isMenuOpen)}
-                    className="lg:hidden text-gray-800 dark:text-gray-200 focus:outline-none"
-                >
-                    {isMenuOpen ? <FaTimes size={22} /> : <FaBars size={22} />}
-                </button>
+                <div className="lg:hidden flex items-center gap-4"> 
+                    <ThemeToggle />
+                    <button
+                        onClick={() => setIsMenuOpen(!isMenuOpen)}
+                        className="lg:hidden text-gray-800 dark:text-gray-200 focus:outline-none"
+                    >
+                        {isMenuOpen ? <FaTimes size={22} /> : <FaBars size={22} />}
+                    </button>
+                </div>
 
                 {/* Mobile Menu */}
                 {isMenuOpen && (
