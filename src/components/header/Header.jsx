@@ -105,7 +105,6 @@ const Header = () => {
                                 <FaUser className="w-4 h-4" />
                                 <span>Dashboard</span>
                             </button>
-                            <span className="text-gray-300">|</span>
                             <button
                                 type="button"
                                 onClick={logout}
@@ -186,20 +185,41 @@ const Header = () => {
                                 </a>
                             )
                         )}
-                        <div className="flex items-center gap-4">
-                            <button
-                                type="button"
-                                onClick={onOpenLogin}
-                                className="text-gray-800 dark:text-gray-600 font-medium hover:text-blue-600 dark:hover:text-blue-400 bg-white px-5 py-1 rounded-full transition border border-blue-600 hover:border-blue-600">
-                                Login
-                            </button>
-                            <button
-                                type="button"
-                                onClick={onOpenRegister}
-                                className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-1 rounded-full font-medium transition">
-                                Sign Up
-                            </button>
-                        </div>
+                        {isLoggedIn ? (
+                            <div className="flex items-center gap-2">
+                                <button
+                                    type="button"
+                                    onClick={() => navigate('/dashboard')}
+                                    className="flex items-center gap-1 text-gray-800 hover:text-blue-600 bg-white px-5 py-1 rounded-full transition border border-blue-600 hover:border-blue-600"
+                                >
+                                    <FaUser className="w-4 h-4" />
+                                    <span>Dashboard</span>
+                                </button>
+                                <button
+                                    type="button"
+                                    onClick={logout}
+                                    className="flex items-center gap-1 bg-blue-600 hover:bg-blue-700 text-white px-5 py-1 rounded-full font-medium transition hover:border-blue-600"
+                                >
+                                    <FaSignOutAlt className="w-4 h-4" />
+                                    <span>Logout</span>
+                                </button>
+                            </div>
+                        ) : (
+                            <div className="flex items-center gap-4">
+                                <button
+                                    type="button"
+                                    onClick={onOpenLogin}
+                                    className="text-gray-800 dark:text-gray-600 font-medium hover:text-blue-600 dark:hover:text-blue-400 bg-white px-5 py-1 rounded-full transition border border-blue-600 hover:border-blue-600">
+                                    Login
+                                </button>
+                                <button
+                                    type="button"
+                                    onClick={onOpenRegister}
+                                    className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-1 rounded-full font-medium transition">
+                                    Sign Up
+                                </button>
+                            </div>
+                        )}
                     </div>
                 )}
             </div>

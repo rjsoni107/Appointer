@@ -6,6 +6,7 @@ const initialState = {
     isRegisterOpen: false,
     isProviderRegisterOpen: false,
     isThankYouOpen: false,
+    isSidebarOpen: false,
 };
 
 const modalSlice = createSlice({
@@ -36,6 +37,12 @@ const modalSlice = createSlice({
         closeThankYouModal: (state) => {
             state.isThankYouOpen = false;
         },
+        openSidebar: (state) => {
+            state.isSidebarOpen = true;
+        },
+        closeSidebar: (state) => {
+            state.isSidebarOpen = false;
+        },
     },
 });
 
@@ -48,6 +55,8 @@ export const {
     closeProviderRegister,
     openThankYouModal,
     closeThankYouModal,
+    openSidebar,
+    closeSidebar,
 } = modalSlice.actions;
 
 export default modalSlice.reducer;
