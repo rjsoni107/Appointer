@@ -2,8 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FaSearch, FaUserPlus } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
-import { openRegister, closeLogin, openProviderRegister } from '../../store/reducerSlice/modalSlice';
+import { closeLogin, openProviderRegister } from '../../store/reducerSlice/modalSlice';
 import bannerVideo from '../../assets/videos/banner-bg.mp4';
+import bannerPoster from '../../assets/images/banner-poster.webp';
 
 // Framer Motion variants
 const wordVariants = {
@@ -34,12 +35,15 @@ const BannerSection = () => {
         >
             {/* 🔹 Video Background */}
             <video
-                className="absolute top-0 left-0 w-full h-full object-cover z-0"
+                className="absolute top-0 left-0 w-full h-full object-cover z-0 transition-opacity duration-700"
                 src={bannerVideo}
+                poster={bannerPoster}
                 autoPlay
                 loop
                 muted
                 playsInline
+                onCanPlayThrough={(e) => e.target.classList.add('opacity-100')}
+                style={{ opacity: 1 }}
             />
 
             {/* 🔹 Overlay */}
