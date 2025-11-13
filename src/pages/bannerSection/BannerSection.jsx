@@ -113,11 +113,11 @@ const BannerSection = () => {
                 >
 
                     {isLoggedIn ? (
-                        <div className="sm:hidden flex items-center gap-4 justify-center">
+                        <div className="sm:hidden flex items-center gap-2 justify-center">
                             <button
                                 type="button"
                                 onClick={() => navigate('/dashboard')}
-                                className="flex items-center gap-1 text-gray-800 hover:text-blue-600 bg-white px-5 py-1 rounded-full transition border border-blue-600 hover:border-blue-600"
+                                className="w-1/2 justify-center flex items-center gap-1 text-gray-800 hover:text-blue-600 bg-white px-5 py-2 rounded-full transition border hover:border-blue-600"
                             >
                                 <FaUser className="w-4 h-4" />
                                 <span>Dashboard</span>
@@ -125,24 +125,24 @@ const BannerSection = () => {
                             <button
                                 type="button"
                                 onClick={logout}
-                                className="flex items-center gap-1 bg-blue-600 hover:bg-blue-700 text-white px-5 py-1 rounded-full font-medium transition hover:border-blue-600"
+                                className="w-1/2 justify-center flex items-center gap-1 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full font-medium transition hover:border-blue-600"
                             >
                                 <FaSignOutAlt className="w-4 h-4" />
                                 <span>Logout</span>
                             </button>
                         </div>
                     ) : (
-                        <div className="sm:hidden flex items-center gap-4 justify-center">
+                        <div className="sm:hidden flex items-center gap-2 justify-center">
                             <button
                                 type="button"
                                 onClick={onOpenLogin}
-                                className="text-gray-800 dark:text-gray-600 font-medium hover:text-blue-600 dark:hover:text-blue-400 bg-white px-5 py-1 rounded-full transition border border-blue-600 hover:border-blue-600">
+                                className="w-1/2 justify-center text-gray-800 dark:text-gray-600 font-medium hover:text-blue-600 dark:hover:text-blue-400 bg-white px-5 py-2 rounded-full transition border hover:border-blue-600">
                                 Login
                             </button>
                             <button
                                 type="button"
                                 onClick={onOpenRegister}
-                                className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-1 rounded-full font-medium transition">
+                                className="w-1/2 justify-center bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full font-medium transition">
                                 Sign Up
                             </button>
                         </div>
