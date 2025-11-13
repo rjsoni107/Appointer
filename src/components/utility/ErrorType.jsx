@@ -27,6 +27,18 @@ const ERROR_TYPE = {
     },
     TERMS_ACCEPTED: {
         IS_BLANK: "Please accept terms and conditions"
+    },
+    SERVICE_CATEGORY: {
+        IS_BLANK: "Please enter service category",
+        IS_INVALID: "Invalid service category"
+    },
+    EXPERIENCE: {
+        IS_BLANK: "Please enter experience",
+        IS_INVALID: "Invalid experience"
+    },
+    LOCATION: {
+        IS_BLANK: "Please enter location",
+        IS_INVALID: "Invalid location"
     }
 };
 

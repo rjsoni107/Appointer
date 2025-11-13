@@ -1,11 +1,11 @@
 import Modal from "./Modal";
-import { LoginForm, RegistrationForm, ThankYouModal } from "../form";
+import { LoginForm, RegistrationForm, ThankYouModal, ProviderForm } from "../form";
 import { useDispatch, useSelector } from "react-redux";
-import { closeLogin, closeRegister, closeThankYouModal } from "../../store/reducerSlice/modalSlice";
+import { closeLogin, closeRegister, closeThankYouModal, closeProviderRegister } from "../../store/reducerSlice/modalSlice";
 
 const ModalComponent = () => {
     const dispatch = useDispatch();
-    const { isLoginOpen, isRegisterOpen, isThankYouOpen } = useSelector((state) => state.modal);
+    const { isLoginOpen, isRegisterOpen, isThankYouOpen, isProviderRegisterOpen } = useSelector((state) => state.modal);
 
     return (
         <>
@@ -13,8 +13,12 @@ const ModalComponent = () => {
                 <LoginForm />
             </Modal>
 
-            <Modal open={isRegisterOpen} onClose={() => dispatch(closeRegister())} title="Provider Sign Up" modalHeader={true}>
+            <Modal open={isRegisterOpen} onClose={() => dispatch(closeRegister())} title="Sign Up" modalHeader={true}>
                 <RegistrationForm />
+            </Modal>
+
+            <Modal open={isProviderRegisterOpen} onClose={() => dispatch(closeProviderRegister())} title="Become a Provider" modalHeader={true}>
+                <ProviderForm />
             </Modal>
 
             <Modal open={isThankYouOpen} onClose={() => dispatch(closeThankYouModal())} modalHeader={false}>

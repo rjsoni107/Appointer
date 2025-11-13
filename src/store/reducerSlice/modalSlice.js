@@ -4,7 +4,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
     isLoginOpen: false,
     isRegisterOpen: false,
-    isKYCModal: false,
+    isProviderRegisterOpen: false,
     isThankYouOpen: false,
 };
 
@@ -24,11 +24,11 @@ const modalSlice = createSlice({
         closeRegister: (state) => {
             state.isRegisterOpen = false;
         },
-        openKYCModal: (state) => {
-            state.isKYCModal = true;
+        openProviderRegister: (state) => {
+            state.isProviderRegisterOpen = true;
         },
-        closeKYCModal: (state) => {
-            state.isKYCModal = false;
+        closeProviderRegister: (state) => {
+            state.isProviderRegisterOpen = false;
         },
         openThankYouModal: (state) => {
             state.isThankYouOpen = true;
@@ -44,8 +44,8 @@ export const {
     closeLogin,
     openRegister,
     closeRegister,
-    openKYCModal,
-    closeKYCModal,
+    openProviderRegister,
+    closeProviderRegister,
     openThankYouModal,
     closeThankYouModal,
 } = modalSlice.actions;

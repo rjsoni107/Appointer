@@ -38,7 +38,7 @@ export default function LoginForm() {
 
     return (
         <form className="form-section mt-5">
-            <div className="grid grid-cols-1 gap-x-4">
+            <div className="grid lg:grid-cols-1 md:grid-cols-2 gap-x-4 ">
                 <InputField
                     key="MOBILE"
                     id="MOBILE"

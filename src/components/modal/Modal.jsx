@@ -62,7 +62,7 @@ export default function Modal({ open, onClose, title, children, modalHeader, key
                     </button>
                 </div>}
 
-                <div className="p-6 pt-1.5 max-h-[85vh] min-h-[35vh] rounded-b-2xl overflow-y-auto scrollbar-none dark:bg-gray-800 dark:text-white">{children}</div>
+                <div className="p-6 pt-1.5 max-h-[85vh] min-h-[35vh] rounded-2xl overflow-y-auto scrollbar-none dark:bg-gray-800 dark:text-white">{children}</div>
             </div>
         </div>,
         document.body

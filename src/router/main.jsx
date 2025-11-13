@@ -11,6 +11,7 @@ import { Provider } from 'react-redux';
 import { store } from '../store/store';
 import Home from '../pages/Home.jsx';
 import { PublicLayout } from '../components/index.js';
+import { ThemeProvider } from '../contexts/ThemeContext.jsx';
 
 const router = createBrowserRouter([
     {
@@ -31,7 +32,9 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
     <Provider store={store}>
         <AuthProvider>
-            <RouterProvider router={router} />
+            <ThemeProvider>
+                <RouterProvider router={router} />
+            </ThemeProvider>
         </AuthProvider>
     </Provider>
 )

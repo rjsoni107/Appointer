@@ -47,7 +47,7 @@ export default function RegistrationForm() {
 
     return (
         <form className="form-section mt-5">
-            <div className="grid grid-cols-2 gap-x-4">
+            <div className="grid lg:grid-cols-2 md:grid-cols-2 gap-x-4">
                 {fields.map((field) => (
                     <InputField
                         key={field.key}

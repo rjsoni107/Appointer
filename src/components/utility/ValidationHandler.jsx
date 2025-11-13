@@ -150,11 +150,15 @@ export const ValidationHandler = () => {
         }
     }
 
-    const inputMessageHandler = (evt, action, type, message) => {
+    const inputMessageHandler = (evt, action, type, message, $elementId) => {
         try {
             const that = evt.target || evt;
             const elementId = that.id || that.name;
-            const errorElement = document.getElementById(`${type}-${elementId}`);
+            let errorElement = document.getElementById(`${type}-${elementId}`);
+
+            if(errorElement === null) {
+                errorElement = document.getElementById(type.toLowerCase() + "-" + $elementId);
+            }
 
             switch (action) {
                 case "SHOW":

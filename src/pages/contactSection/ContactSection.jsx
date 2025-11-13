@@ -22,10 +22,10 @@ const ContactSection = () => {
     const { submitHandler } = ContactSectionDTO();
 
     const fields = [
-        { key: 'FIRST_NAME', label: 'First Name', type: 'text', dataType: 'ALPHA_SPACE' },
-        { key: 'LAST_NAME', label: 'Last Name', type: 'text', dataType: 'ALPHA_SPACE' },
-        { key: 'MOBILE', label: 'Mobile', type: 'tel', dataType: 'NUMBER', dataValidation: 'MOBILE', maxLength: 10 },
-        { key: 'COMPANY_NAME', label: 'Company Name', type: 'text', dataType: 'ALPHA_SPACE' },
+        { key: 'CONTACT_FIRST_NAME', name: 'FIRST_NAME', label: 'First Name', type: 'text', dataType: 'ALPHA_SPACE' },
+        { key: 'CONTACT_LAST_NAME', name: 'LAST_NAME', label: 'Last Name', type: 'text', dataType: 'ALPHA_SPACE' },
+        { key: 'CONTACT_MOBILE', name: 'MOBILE', label: 'Mobile', type: 'tel', dataType: 'NUMBER', dataValidation: 'MOBILE', maxLength: 10 },
+        { key: 'CONTACT_COMPANY_NAME', name: 'COMPANY_NAME', label: 'Company Name', type: 'text', dataType: 'ALPHA_SPACE' },
     ];
 
     const payload = state.payload;
@@ -53,14 +53,14 @@ const ContactSection = () => {
                             key={field.key}
                             id={field.key}
                             type={field.type}
-                            name={field.key}
+                            name={field.name}
                             label={field.label}
                             placeholder={`Enter your ${field.label.toLowerCase()}`}
-                            value={payload[field.key] || ""}
+                            value={payload[field.name] || ""}
                             onBlur={handleBlur}
                             onChange={evt => {
                                 inputChangeHandler(evt, setState);
-                                inputMessageHandler(evt, 'HIDE', 'error');
+                                inputMessageHandler(evt, 'HIDE', 'error', null, field.name);
                             }}
                             isRequired={true}
                             className="input-field py-4 px-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"

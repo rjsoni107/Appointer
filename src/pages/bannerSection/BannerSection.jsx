@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FaSearch, FaUserPlus } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
-import { openRegister, closeLogin } from '../../store/reducerSlice/modalSlice';
+import { openRegister, closeLogin, openProviderRegister } from '../../store/reducerSlice/modalSlice';
 import bannerVideo from '../../assets/videos/banner-bg.mp4';
 
 // Framer Motion variants
@@ -22,9 +22,9 @@ const wordVariants = {
 const BannerSection = () => {
     const words = ['Trusted', 'Local', 'Services'];
     const dispatch = useDispatch();
-    const onOpenRegister = () => {
+    const onOpenProviderRegister = () => {
         dispatch(closeLogin());
-        setTimeout(() => dispatch(openRegister()), 0);
+        setTimeout(() => dispatch(openProviderRegister()), 0);
     }
 
     return (
@@ -103,7 +103,7 @@ const BannerSection = () => {
 
                     <button
                         type="button"
-                        onClick={onOpenRegister}
+                        onClick={onOpenProviderRegister}
                         className="flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-3 rounded-full font-medium shadow-md hover:shadow-lg transition duration-300 text-base sm:text-lg">
                         <FaUserPlus /> Become a Provider
                     </button>

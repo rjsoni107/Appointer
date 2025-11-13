@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import { Header } from "../header";
 import { Footer } from "../footer";
+import { ModalComponent } from "../modal";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaArrowUp } from "react-icons/fa";
@@ -42,6 +43,7 @@ const PublicLayout = () => {
             <Header />
             <Outlet />
             <Footer />
+            <ModalComponent />
             {/* Scroll to Top Button */}
             <AnimatePresence>
                 {showScrollTop && (

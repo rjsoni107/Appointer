@@ -1,5 +1,8 @@
 import React from "react";
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { useTheme } from "../../contexts/ThemeContext";
+import logoDark from "../../assets/images/logo-dark.webp";
+import logoLight from "../../assets/images/logo-light.webp";
 
 const Footer = () => {
     const footerLinks = [
@@ -31,6 +34,7 @@ const Footer = () => {
             ]
         }
     ];
+    const { theme } = useTheme();
     return (
         <footer className="relative bg-gradient-to-b from-[#ebf1fe] to-[#eef4ff] dark:from-[#0b1120] dark:to-[#111827] text-gray-700 dark:text-gray-300 transition-colors duration-500">
             <div className="max-w-7xl mx-auto px-6 pt-10 pb-5">
@@ -38,9 +42,14 @@ const Footer = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 border-b border-gray-200 dark:border-gray-700 pb-10">
                     {/* Logo + Description */}
                     <div data-aos="fade-up">
-                        <h3 className="text-3xl font-extrabold text-blue-700 dark:text-blue-400 mb-3">
+                        {/* <h3 className="text-3xl font-extrabold text-blue-700 dark:text-blue-400 mb-3">
                             Appointer
-                        </h3>
+                        </h3> */}
+                        <img
+                            src={theme === "dark" ? logoLight : logoDark}
+                            alt="Appointer Logo"
+                            className="h-10 mb-3"
+                        />
                         <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
                             Connecting communities with{" "}
                             <span className="font-medium text-blue-600 dark:text-blue-400">

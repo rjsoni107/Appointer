@@ -29,7 +29,7 @@ const InputField = (props) => {
         fieldType = <textarea className={`form-control dark:bg-gray-800 dark:text-white ${props.className !== undefined ? props.className : ''}`} {...props} rows={props.rows !== undefined ? props.rows : 3} />
     };
     const requiredIcon = props.isRequired ? <span className="text-red-600 dark:text-red-400">*</span> : null;
-    const errorMsg = <span className={`text-red-600 dark:text-red-400 absolute text-xs right-0`} id={`error-${props.name}`}>{props.errorMessage}</span>
+    const errorMsg = <span className={`text-red-600 dark:text-red-400 absolute text-xs right-0`} id={`error-${props.id}`}>{props.errorMessage}</span>
     return (
         <div className="mb-4 col-span-1 relative">
             {props.label && (<label htmlFor={props.id} className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1" >{props.label} {requiredIcon}</label>)}
