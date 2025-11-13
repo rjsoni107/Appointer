@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { closeLogin, openProviderRegister } from "../../store/reducerSlice/modalSlice";
+import { FaSearch, FaUserPlus } from "react-icons/fa";
 
 const CTASection = () => {
     const dispatch = useDispatch();
@@ -27,15 +28,17 @@ const CTASection = () => {
 
             {/* Buttons */}
             <div data-aos="zoom-in" className="flex flex-wrap justify-center gap-6 mt-6">
-                <button className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 dark:bg-blue-700 dark:hover:bg-blue-800">
-                    Find Services Now
-                </button>
+                <a href="#services">
+                    <button className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-medium shadow-md hover:shadow-lg transition duration-300 text-base sm:text-lg">
+                        <FaSearch /> Find Services Now
+                    </button>
+                </a>
 
                 <button
                     type="button"
                     onClick={onOpenProviderRegister}
-                    className="bg-green-500 hover:bg-green-600 text-white font-medium py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300">
-                    Become a Provider
+                    className="flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-3 rounded-full font-medium shadow-md hover:shadow-lg transition duration-300 text-base sm:text-lg">
+                    <FaUserPlus /> Become a Provider
                 </button>
             </div>
         </section>

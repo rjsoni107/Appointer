@@ -40,6 +40,7 @@ const BannerSection = () => {
                 loop
                 muted
                 playsInline
+                lazy
             />
 
             {/* 🔹 Overlay */}
@@ -91,15 +92,14 @@ const BannerSection = () => {
                     className="flex flex-col sm:flex-row justify-center gap-4"
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 1.2 }}
+                    transition={{ duration: 0.8, delay: 0.1 }}
                     viewport={{ once: true }}
                 >
-                    <button
-                        type="button"
-                        // onClick={onOpenRegister}
-                        className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-medium shadow-md hover:shadow-lg transition duration-300 text-base sm:text-lg">
-                        <FaSearch /> Find Services
-                    </button>
+                    <a href="#services">
+                        <button className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-medium shadow-md hover:shadow-lg transition duration-300 text-base sm:text-lg">
+                            <FaSearch /> Find Services Now
+                        </button>
+                    </a>
 
                     <button
                         type="button"

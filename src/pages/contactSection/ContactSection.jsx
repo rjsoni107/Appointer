@@ -48,6 +48,10 @@ const ContactSection = () => {
                     data-aos="fade-up"
                     className="form-section grid grid-cols-1 sm:grid-cols-2 gap-6 text-left bg-white dark:bg-gray-700 p-8 rounded-2xl shadow-lg"
                 >
+                    <div className="sm:col-span-2">
+                        <h2 className="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-2">SEND US A MESSAGE</h2>
+                        <p className="text-gray-600 dark:text-gray-300 text-base">Leave us a message and we will get back to you as soon as possible.</p>
+                    </div>
                     {fields.map((field) => (
                         <InputField
                             key={field.key}
