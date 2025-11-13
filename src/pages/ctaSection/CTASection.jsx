@@ -5,6 +5,7 @@ import { FaSearch, FaUserPlus } from "react-icons/fa";
 
 const CTASection = () => {
     const dispatch = useDispatch();
+    
     const onOpenProviderRegister = () => {
         dispatch(closeLogin());
         setTimeout(() => dispatch(openProviderRegister()), 0);
