@@ -9,19 +9,41 @@ const ModalComponent = () => {
 
     return (
         <>
-            <Modal open={isLoginOpen} onClose={() => dispatch(closeLogin())} title="Provider Login" modalHeader={true}>
+            <Modal
+                open={isLoginOpen}
+                onClose={() => dispatch(closeLogin())}
+                title="Provider Login"
+                subtitle="Enter your credentials to login"
+                modalHeader={true}
+            >
                 <LoginForm />
             </Modal>
 
-            <Modal open={isRegisterOpen} onClose={() => dispatch(closeRegister())} title="Sign Up" modalHeader={true}>
+            <Modal
+                open={isRegisterOpen}
+                onClose={() => dispatch(closeRegister())}
+                title="Sign Up"
+                subtitle="Enter your credentials to register"
+                modalHeader={true}
+            >
                 <RegistrationForm />
             </Modal>
 
-            <Modal open={isProviderRegisterOpen} onClose={() => dispatch(closeProviderRegister())} title="Become a Provider" modalHeader={true}>
+            <Modal
+                open={isProviderRegisterOpen}
+                onClose={() => dispatch(closeProviderRegister())}
+                title="Become a Provider"
+                subtitle="Join Appointer and start offering your services today!"
+                modalHeader={true}
+            >
                 <ProviderForm />
             </Modal>
 
-            <Modal open={isThankYouOpen} onClose={() => dispatch(closeThankYouModal())} modalHeader={false}>
+            <Modal
+                open={isThankYouOpen}
+                onClose={() => dispatch(closeThankYouModal())}
+                modalHeader={false}
+            >
                 <ThankYouModal />
             </Modal>
         </>

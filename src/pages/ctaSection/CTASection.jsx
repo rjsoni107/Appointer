@@ -1,12 +1,12 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { closeLogin, openRegister } from "../../store/reducerSlice/modalSlice";
+import { closeLogin, openProviderRegister } from "../../store/reducerSlice/modalSlice";
 
 const CTASection = () => {
     const dispatch = useDispatch();
-    const onOpenRegister = () => {
+    const onOpenProviderRegister = () => {
         dispatch(closeLogin());
-        setTimeout(() => dispatch(openRegister()), 0);
+        setTimeout(() => dispatch(openProviderRegister()), 0);
     }
 
     return (
@@ -33,7 +33,7 @@ const CTASection = () => {
 
                 <button
                     type="button"
-                    onClick={onOpenRegister}
+                    onClick={onOpenProviderRegister}
                     className="bg-green-500 hover:bg-green-600 text-white font-medium py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300">
                     Become a Provider
                 </button>

@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import * as LucideIcons from "lucide-react";
 
-export default function Modal({ open, onClose, title, children, modalHeader, key }) {
+export default function Modal({ open, onClose, title, subtitle, children, modalHeader, key }) {
     const [shouldRender, setShouldRender] = useState(open);
     const [animState, setAnimState] = useState(open ? "enter" : "exit");
     const modalRef = useRef(null);
@@ -51,12 +51,15 @@ export default function Modal({ open, onClose, title, children, modalHeader, key
                 onClick={stopPropagation}
             >
                 {modalHeader && <div className="px-6 pt-4 pb-3 border-b border-gray-200 flex justify-between items-center sticky top-0 bg-white z-10 rounded-t-2xl dark:bg-gray-800 dark:text-white">
-                    {title && <h5 className="text-2xl font-semibold text-[#214360] dark:text-white">{title}</h5>}
+                    <div className="flex flex-col">
+                        {title && <h5 className="text-2xl font-semibold text-[#214360] dark:text-white mb-1">{title}</h5>}
+                        {subtitle && <p className="text-sm font-medium text-gray-600 dark:text-gray-400 mt-1">{subtitle}</p>}
+                    </div>
                     <button
                         type="button"
                         aria-label="Close"
                         onClick={onClose}
-                        className=""
+                        className="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200"
                     >
                         <LucideIcons.X className="w-5 h-5" />
                     </button>
