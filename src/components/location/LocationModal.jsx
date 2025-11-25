@@ -80,7 +80,7 @@ const LocationModal = ({ open, onClose, onSelect }) => {
                     <div className="flex items-center gap-3">
                         <FaMapMarkerAlt className="text-blue-600" />
                         <input
-                            className="md:w-96 w-70 bg-transparent outline-none text-lg dark:text-gray-200 placeholder-gray-500"
+                            className="md:w-96 w-70 bg-transparent outline-none text-lg text-gray-800 dark:text-gray-200 placeholder-gray-500"
                             placeholder="Search city or area (e.g., Noida, Sector 18)"
                             value={query}
                             onChange={(e) => setQuery(e.target.value)}
