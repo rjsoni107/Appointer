@@ -98,7 +98,7 @@ const LocationInput = ({ onLocationChosen }) => {
                         value={value}
                         onChange={onChange}
                         placeholder="Location"
-                        className="bg-transparent outline-none w-28 text-sm dark:text-gray-200 placeholder-gray-500"
+                        className="bg-transparent outline-none md:w-28 w-16 text-sm dark:text-gray-200 placeholder-gray-500"
                     />
                     <button onClick={(e) => { e.stopPropagation(); handleDetect(); }} className="p-1 text-blue-600 dark:text-blue-400">
                         <FaCrosshairs />

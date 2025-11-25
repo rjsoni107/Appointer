@@ -5,6 +5,8 @@ import { closeLogin, openProviderRegister } from '../../store/reducerSlice/modal
 import bannerVideo from '../../assets/videos/banner-bg.mp4';
 import bannerPoster from '../../assets/images/banner-poster.webp';
 import AuthButtons from '../../components/common/AuthButtons';
+import LocationInput from '../../components/location/LocationInput';
+import AnimatedSearch from '../../components/header/AnimatedSearch';
 // Framer Motion variants
 const wordVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -43,14 +45,22 @@ const BannerSection = () => {
             />
 
             {/* 🔹 Overlay */}
-            <div className="absolute top-0 left-0 w-full h-full bg-black/50 dark:bg-black/70 z-10"></div>
+            <div className="absolute top-0 left-0 w-full h-full bg-black/50 dark:bg-black/70"></div>
 
             <div className="hidden lg:flex items-center gap-2 absolute top-4 right-4 z-20">
                 <AuthButtons variant="desktop" />
             </div>
+            <div className="sm:hidden flex items-center gap-2 absolute top-6 left-4 right-4 z-20">
+                <LocationInput onLocationChosen={({ city }) => {
+                    // optional: navigate or fetch providers here
+                    console.log("Location chosen:", city);
+                    // e.g., dispatch(fetchProvidersForCity(city))
+                }} />
+                <AnimatedSearch />
+            </div>
 
             {/* 🔹 Content */}
-            <div className="relative z-20 px-4 sm:px-6 md:px-8 lg:px-12 w-full sm:w-11/12 md:w-4/5 lg:w-2/3 xl:w-1/2">
+            <div className="relative px-4 sm:px-6 md:px-8 lg:px-12 w-full sm:w-11/12 md:w-4/5 lg:w-2/3 xl:w-1/2">
                 {/* Animated Heading */}
                 <motion.h1
                     className="text-3xl sm:text-4xl md:text-5xl font-bold leading-snug sm:leading-tight mb-4 text-white"

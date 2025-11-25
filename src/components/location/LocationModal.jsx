@@ -74,13 +74,13 @@ const LocationModal = ({ open, onClose, onSelect }) => {
 
     if (!open) return null;
     return (
-        <div className="fixed inset-0 z-50 bg-black/50 flex items-start md:items-center justify-center p-4">
+        <div className="fixed inset-0 z-50 bg-black/50 flex items-start md:items-center justify-center p-4 md:top-0 top-16">
             <div ref={ref} className="w-full max-w-2xl bg-white dark:bg-gray-900 rounded-xl shadow-xl overflow-hidden">
                 <div className="flex items-center justify-between px-4 py-3 border-b dark:border-gray-700">
                     <div className="flex items-center gap-3">
                         <FaMapMarkerAlt className="text-blue-600" />
                         <input
-                            className="w-96 bg-transparent outline-none text-lg dark:text-gray-200 placeholder-gray-500"
+                            className="md:w-96 w-70 bg-transparent outline-none text-lg dark:text-gray-200 placeholder-gray-500"
                             placeholder="Search city or area (e.g., Noida, Sector 18)"
                             value={query}
                             onChange={(e) => setQuery(e.target.value)}
@@ -90,7 +90,7 @@ const LocationModal = ({ open, onClose, onSelect }) => {
 
                     <div className="flex items-center gap-3">
                         <button onClick={handleDetect} className="px-3 py-1 rounded-md bg-blue-50 hover:bg-blue-100 text-blue-700 flex items-center gap-2">
-                            <FaCrosshairs /> Auto-detect
+                            <FaCrosshairs /><span className="hidden lg:flex">Auto-detect</span>
                         </button>
                         <button onClick={onClose} className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-300">
                             <FaTimes />
