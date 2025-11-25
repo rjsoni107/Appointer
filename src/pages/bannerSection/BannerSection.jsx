@@ -1,12 +1,10 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { FaSearch, FaUserPlus, FaSignOutAlt, FaUser } from 'react-icons/fa';
+import { FaSearch, FaUserPlus } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
-import { closeLogin, openProviderRegister, closeRegister, openLogin, openRegister } from '../../store/reducerSlice/modalSlice';
+import { closeLogin, openProviderRegister } from '../../store/reducerSlice/modalSlice';
 import bannerVideo from '../../assets/videos/banner-bg.mp4';
 import bannerPoster from '../../assets/images/banner-poster.webp';
-import { useAuth } from '../../hook/useAuth';
-import { useNavigate } from 'react-router-dom';
+import AuthButtons from '../../components/common/AuthButtons';
 // Framer Motion variants
 const wordVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -24,28 +22,13 @@ const wordVariants = {
 const BannerSection = () => {
     const words = ['Trusted', 'Local', 'Services'];
     const dispatch = useDispatch();
-    const navigate = useNavigate();
-    const { isLoggedIn, logout } = useAuth();
     const onOpenProviderRegister = () => {
         dispatch(closeLogin());
         setTimeout(() => dispatch(openProviderRegister()), 0);
     }
 
-    const onOpenLogin = () => {
-        dispatch(closeRegister());
-        setTimeout(() => dispatch(openLogin()), 0);
-    };
-
-    const onOpenRegister = () => {
-        dispatch(closeLogin());
-        setTimeout(() => dispatch(openRegister()), 0);
-    };
-
     return (
-        <section
-            id="home"
-            className="relative w-full h-screen flex items-center justify-center text-center text-white mt-16 overflow-hidden"
-        >
+        <section id="home" className="relative w-full h-screen flex items-center justify-center text-center text-white mt-16 overflow-hidden">
             {/* 🔹 Video Background */}
             <video
                 className="absolute top-0 left-0 w-full h-full object-cover z-0 transition-opacity duration-700"
@@ -61,6 +44,10 @@ const BannerSection = () => {
 
             {/* 🔹 Overlay */}
             <div className="absolute top-0 left-0 w-full h-full bg-black/50 dark:bg-black/70 z-10"></div>
+
+            <div className="hidden lg:flex items-center gap-2 absolute top-4 right-4 z-20">
+                <AuthButtons variant="desktop" />
+            </div>
 
             {/* 🔹 Content */}
             <div className="relative z-20 px-4 sm:px-6 md:px-8 lg:px-12 w-full sm:w-11/12 md:w-4/5 lg:w-2/3 xl:w-1/2">
@@ -93,7 +80,7 @@ const BannerSection = () => {
 
                 {/* Subtitle */}
                 <motion.p
-                    className="text-gray-200 dark:text-gray-400 text-base sm:text-lg md:text-xl leading-relaxed max-w-3xl mx-auto mb-8 px-2"
+                    className="text-gray-100 dark:text-gray-300 text-base sm:text-lg md:text-xl leading-relaxed max-w-3xl mx-auto mb-8 px-2"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7, delay: 0.8 }}
@@ -112,43 +99,11 @@ const BannerSection = () => {
                     viewport={{ once: true }}
                 >
 
-                    {isLoggedIn ? (
-                        <div className="sm:hidden flex items-center gap-2 justify-center">
-                            <button
-                                type="button"
-                                onClick={() => navigate('/dashboard')}
-                                className="w-1/2 justify-center flex items-center gap-1 text-gray-800 hover:text-blue-600 bg-white px-5 py-2 rounded-full transition border hover:border-blue-600"
-                            >
-                                <FaUser className="w-4 h-4" />
-                                <span>Dashboard</span>
-                            </button>
-                            <button
-                                type="button"
-                                onClick={logout}
-                                className="w-1/2 justify-center flex items-center gap-1 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full font-medium transition hover:border-blue-600"
-                            >
-                                <FaSignOutAlt className="w-4 h-4" />
-                                <span>Logout</span>
-                            </button>
-                        </div>
-                    ) : (
-                        <div className="sm:hidden flex items-center gap-2 justify-center">
-                            <button
-                                type="button"
-                                onClick={onOpenLogin}
-                                className="w-1/2 justify-center text-gray-800 dark:text-gray-600 font-medium hover:text-blue-600 dark:hover:text-blue-400 bg-white px-5 py-2 rounded-full transition border hover:border-blue-600">
-                                Login
-                            </button>
-                            <button
-                                type="button"
-                                onClick={onOpenRegister}
-                                className="w-1/2 justify-center bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full font-medium transition">
-                                Sign Up
-                            </button>
-                        </div>
-                    )}
+                    <div className="sm:hidden w-full flex justify-center">
+                        <AuthButtons variant="mobile" />
+                    </div>
 
-                    <a href="#services" className="hidden sm:flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-medium shadow-md hover:shadow-lg transition duration-300 text-base sm:text-lg">
+                    <a href="#services" className="hidden sm:flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white hover:text-white px-6 py-3 rounded-full font-medium shadow-md hover:shadow-lg transition duration-300 text-base sm:text-lg">
                         <FaSearch /> Find Services Now
                     </a>
 

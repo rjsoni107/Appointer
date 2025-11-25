@@ -31,21 +31,34 @@ const Dashboard = () => {
         // Booking trend data
         setBookingTrend({
             options: {
-                chart: { type: "area", toolbar: { show: false } },
+                chart: {
+                    id: "bookingTrendChart",
+                    type: "area",
+                    toolbar: { show: false },
+                    background: "transparent",
+                },
                 stroke: { curve: "smooth", width: 2 },
                 xaxis: {
                     categories: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+                    labels: { style: { colors: Array(7).fill(theme === "dark" ? "#E5E7EB" : "#374151") } },
                 },
+                yaxis: { labels: { style: { colors: theme === "dark" ? "#E5E7EB" : "#374151" } } },
                 colors: ["#3B82F6"],
                 fill: {
                     type: "gradient",
                     gradient: { opacityFrom: 0.7, opacityTo: 0.3 },
                 },
                 dataLabels: { enabled: false },
-                tooltip: { theme: "light" },
+                tooltip: { theme: theme === "dark" ? "dark" : "light" },
             },
-            series: [{ name: "Bookings", data: [15, 22, 18, 30, 26, 35, 40] }],
+            series: [
+                {
+                    name: "Bookings",
+                    data: [15, 22, 18, 30, 26, 35, 40],
+                },
+            ],
         });
+
 
         // Service category distribution
         setServiceCategoryData({
@@ -53,12 +66,7 @@ const Dashboard = () => {
                 chart: { type: "pie" },
                 labels: ["Electrician", "Plumber", "AC Repair", "Cleaner", "Carpenter"],
                 colors: ["#3B82F6", "#10B981", "#F59E0B", "#8B5CF6", "#EC4899"],
-                legend: {
-                    position: "bottom",
-                    labels: {
-                        colors: theme === "dark" ? "#E5E7EB" : "#374151",
-                    },
-                },
+                legend: { position: "bottom", labels: { colors: theme === "dark" ? "#E5E7EB" : "#374151" } },
                 dataLabels: { enabled: false },
             },
             series: [25, 20, 18, 22, 15],
@@ -106,6 +114,7 @@ const Dashboard = () => {
                         </div>
                         {bookingTrend && (
                             <Chart
+
                                 options={bookingTrend.options}
                                 series={bookingTrend.series}
                                 type="area"
