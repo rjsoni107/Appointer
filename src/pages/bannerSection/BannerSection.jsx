@@ -50,7 +50,7 @@ const BannerSection = () => {
             <div className="hidden lg:flex items-center gap-2 absolute top-4 right-4 z-20">
                 <AuthButtons variant="desktop" />
             </div>
-            <div className="sm:hidden flex items-center gap-2 absolute top-6 left-4 right-4 z-20">
+            <div className="sm:hidden flex flex-col gap-2 absolute top-6 left-0 right-0 px-4 w-full z-20">
                 <LocationInput onLocationChosen={({ city }) => {
                     // optional: navigate or fetch providers here
                     console.log("Location chosen:", city);

@@ -20,6 +20,7 @@ const AnimatedSearch = () => {
         { name: "Cleaner", category: "Home Services", icon: <FaBroom className="text-teal-500" /> },
         { name: "Gardener", category: "Outdoor", icon: <FaTree className="text-emerald-500" /> },
         { name: "AC Technician", category: "Appliance", icon: <FaTools className="text-indigo-500" /> },
+    
     ];
 
     const TRENDING_SERVICES = [
@@ -106,7 +107,7 @@ const AnimatedSearch = () => {
     };
 
     return (
-        <div className="relative w-50" ref={searchRef}>
+        <div className="relative w-100" ref={searchRef}>
             {/* Input */}
             <input
                 type="text"
@@ -167,10 +168,10 @@ const AnimatedSearch = () => {
                                     >
                                         <div className="text-2xl">{trend.icon}</div>
                                         <div className="flex flex-col">
-                                            <span className="text-gray-800 dark:text-gray-200 group-hover:text-blue-600 font-medium">
+                                            <span className="text-gray-800 dark:text-gray-200 group-hover:text-blue-600 font-medium text-justify">
                                                 {trend.name}
                                             </span>
-                                            <span className="text-xs text-gray-500 dark:text-gray-400">{trend.category}</span>
+                                            <span className="text-xs text-gray-500 dark:text-gray-400 text-justify">{trend.category}</span>
                                         </div>
                                     </div>
                                 ))}
@@ -203,10 +204,10 @@ const AnimatedSearch = () => {
                                             <div className="text-2xl">{item.icon}</div>
 
                                             <div className="flex flex-col leading-tight">
-                                                <span className="text-gray-800 dark:text-gray-200 group-hover:text-blue-600 font-medium">
+                                                <span className="text-gray-800 dark:text-gray-200 group-hover:text-blue-600 font-medium text-justify">
                                                     {highlightMatch(item.name)}
                                                 </span>
-                                                <span className="text-xs text-gray-500 dark:text-gray-400">{item.category}</span>
+                                                <span className="text-xs text-gray-500 dark:text-gray-400 text-justify">{item.category}</span>
                                             </div>
                                         </div>
                                     ))}

@@ -90,7 +90,7 @@ const LocationInput = ({ onLocationChosen }) => {
         <>
             <div ref={ref} className="relative">
                 <div
-                    className="flex items-center gap-2 bg-white dark:bg-gray-800 px-3 py-2 rounded-full shadow-sm border border-gray-200 dark:border-gray-700 cursor-text"
+                    className="flex items-center gap-2 bg-white dark:bg-gray-800 px-3 py-2 rounded-full shadow-sm border border-gray-200 dark:border-gray-700 cursor-text w-full"
                     onClick={() => setOpenDropdown((s) => !s)}
                 >
                     <FaMapMarkerAlt className="text-blue-600 dark:text-blue-400" />
@@ -98,18 +98,28 @@ const LocationInput = ({ onLocationChosen }) => {
                         value={value}
                         onChange={onChange}
                         placeholder="Location"
-                        className="bg-transparent outline-none md:w-28 w-16 text-sm text-gray-800 dark:text-gray-200 placeholder-gray-500"
+                        className="bg-transparent outline-none text-sm text-gray-800 dark:text-gray-200 placeholder-gray-500 flex-1 min-w-0 w-full"
                     />
-                    <button onClick={(e) => { e.stopPropagation(); handleDetect(); }} className="p-1 text-blue-600 dark:text-blue-400">
+                    <button
+                        onClick={(e) => { e.stopPropagation(); handleDetect(); }}
+                        className="p-1 text-blue-600 dark:text-blue-400 flex-none rounded-md hover:bg-blue-50 dark:hover:bg-gray-700"
+                        aria-label="Detect location"
+                        type="button"
+                    >
                         <FaCrosshairs />
                     </button>
-                    <button onClick={(e) => { e.stopPropagation(); setModalOpen(true); }} className="p-1 text-blue-600 dark:text-blue-400">
+                    <button
+                        onClick={(e) => { e.stopPropagation(); setModalOpen(true); }}
+                        className="p-1 text-blue-600 dark:text-blue-400 flex-none rounded-md hover:bg-blue-50 dark:hover:bg-gray-700"
+                        aria-label="Open location picker"
+                        type="button"
+                    >
                         <FaChevronDown />
                     </button>
                 </div>
 
                 {openDropdown && (
-                    <div className="absolute top-12 left-0 w-64 bg-white dark:bg-gray-800 shadow-lg rounded-xl p-2 z-50 border border-gray-200 dark:border-gray-700">
+                    <div className="absolute top-12 left-0 w-full max-w-xs bg-white dark:bg-gray-800 shadow-lg rounded-xl p-2 z-50 border border-gray-200 dark:border-gray-700">
                         {value && filtered.length > 0 ? (
                             filtered.map((place, idx) => {
                                 // pick the best id available
